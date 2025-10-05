@@ -1,0 +1,58 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a4a4a"/>
+      <stop offset="50%" style="stop-color:#2a2a2a"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="leg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a3a3a"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Body/Head -->
+  <rect x="170" y="70" width="60" height="50" fill="url(#body)" stroke="#555" stroke-width="2" rx="5"/>
+  
+  <!-- Cockpit Window -->
+  <rect x="180" y="80" width="40" height="30" fill="#1a1a1a" stroke="#666" stroke-width="2" rx="3"/>
+  <rect x="185" y="85" width="30" height="20" fill="#0a0a0a" stroke="#777" stroke-width="1"/>
+  
+  <!-- Left Leg -->
+  <rect x="175" y="120" width="15" height="60" fill="url(#leg)" stroke="#444" stroke-width="2"/>
+  <rect x="180" y="180" width="20" height="40" fill="url(#leg)" stroke="#444" stroke-width="2"/>
+  
+  <!-- Right Leg -->
+  <rect x="210" y="120" width="15" height="60" fill="url(#leg)" stroke="#444" stroke-width="2"/>
+  <rect x="200" y="180" width="20" height="40" fill="url(#leg)" stroke="#444" stroke-width="2"/>
+  
+  <!-- Leg Joints -->
+  <circle cx="182" cy="120" r="6" fill="#333" stroke="#555" stroke-width="2"/>
+  <circle cx="218" cy="120" r="6" fill="#333" stroke="#555" stroke-width="2"/>
+  <circle cx="190" cy="180" r="5" fill="#333" stroke="#555" stroke-width="2"/>
+  <circle cx="210" cy="180" r="5" fill="#333" stroke="#555" stroke-width="2"/>
+  
+  <!-- Feet -->
+  <ellipse cx="190" cy="225" rx="12" ry="6" fill="#2a2a2a" stroke="#444" stroke-width="2"/>
+  <ellipse cx="210" cy="225" rx="12" ry="6" fill="#2a2a2a" stroke="#444" stroke-width="2"/>
+  
+  <!-- Weapons -->
+  <rect x="230" y="85" width="20" height="8" fill="#444" stroke="#666" stroke-width="1"/>
+  <rect x="230" y="97" width="20" height="8" fill="#444" stroke="#666" stroke-width="1"/>
+  <circle cx="252" cy="89" r="2" fill="#dc2626"/>
+  <circle cx="252" cy="101" r="2" fill="#dc2626"/>
+  
+  <!-- Side Cannon -->
+  <rect x="150" y="92" width="20" height="6" fill="#444" stroke="#666" stroke-width="1"/>
+  <circle cx="148" cy="95" r="2" fill="#dc2626"/>
+  
+  <!-- Body Details -->
+  <line x1="175" y1="85" x2="175" y2="115" stroke="#666" stroke-width="1"/>
+  <line x1="225" y1="85" x2="225" y2="115" stroke="#666" stroke-width="1"/>
+  <rect x="195" y="75" width="4" height="4" fill="#333" stroke="#555" stroke-width="1"/>
+  <rect x="201" y="75" width="4" height="4" fill="#333" stroke="#555" stroke-width="1"/>
+  
+  <!-- Antenna -->
+  <line x1="200" y1="70" x2="200" y2="55" stroke="#666" stroke-width="2"/>
+  <circle cx="200" cy="52" r="3" fill="#dc2626"/>
+</svg>
