@@ -2,6 +2,9 @@
 
 A fully functional Star Wars themed e-commerce application for Imperial starships and vehicles. This application demonstrates a complete production-ready system that is deliberately missing comprehensive monitoring, observability, and alerting capabilities.
 
+> [!WARNING]
+> This application is intentionally designed without monitoring and observability features to illustrate a critical production gap. This is intended for demonstration purposes only and should not be used as-is in a production environment.
+
 ## 🌟 Features
 
 ### Core E-commerce Functionality
