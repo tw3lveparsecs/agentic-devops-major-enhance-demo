@@ -1,0 +1,47 @@
+# This workflow deploys the Bicep template to Azure using OIDC federated credentials (no secrets required)
+# Prerequisites:
+# - Azure subscription and resource group
+# - Azure AD App Registration with Federated Credential for this GitHub repo/branch
+# - Contributor role assigned to the App Registration on the target resource group
+
+name: Deploy Bicep to Azure
+
+on:
+  workflow_dispatch:
+    inputs:
+      resource-group:
+        description: "Azure Resource Group name"
+        required: true
+        type: string
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: demo
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2.3.0
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: false
+
+      - name: Deploy Bicep file
+        uses: azure/bicep-deploy@v2
+        with:
+          type: deployment
+          operation: create
+          name: github-bicep-deploy
+          scope: resourceGroup
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resource-group-name: ${{ inputs.resource-group }}
+          template-file: ./main.bicep
+          parameters-file: ./main.bicepparam
