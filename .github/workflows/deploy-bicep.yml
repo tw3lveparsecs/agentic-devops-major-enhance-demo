@@ -6,6 +6,8 @@
 # - Contributor role assigned to the App Registration on the target resource group
 
 name: Deploy Static Web App Infrastructure
+env:
+  environment: demo
 
 on:
   workflow_dispatch:
@@ -22,7 +24,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: demo
+    environment: ${{ env.environment }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -69,5 +71,5 @@ jobs:
       - name: Set Static Web App Deploy Token as GitHub Secret
         run: |
           echo "Setting AZURE_STATIC_WEB_APPS_API_TOKEN as a repository secret"
-          echo "${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}" | gh secret set AZURE_STATIC_WEB_APPS_API_TOKEN
+          echo "${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}" | gh secret set --env ${{ env.environment }} AZURE_STATIC_WEB_APPS_API_TOKEN
         shell: bash
