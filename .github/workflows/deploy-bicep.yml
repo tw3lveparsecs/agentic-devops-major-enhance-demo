@@ -40,7 +40,7 @@ jobs:
         with:
           type: deployment
           operation: create
-          name: github-bicep-deploy
+          name: static-web-app-deploy
           scope: resourceGroup
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resource-group-name: ${{ inputs.resource-group }}
