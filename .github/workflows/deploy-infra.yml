@@ -2,7 +2,7 @@
 # Prerequisites:
 # - Azure subscription and resource group
 # - Azure AD App Registration with Federated Credential for this GitHub repo/branch
-# - GitHub secrets: AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_SUBSCRIPTION_ID, REPO_GITHUB_PAT (fine grained to only have access to this repo to read/write secrets)
+# - GitHub secrets: AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_SUBSCRIPTION_ID, REPO_GITHUB_PAT (fine grained to only have access to this repo to read/write secrets and environments)
 # - Contributor role assigned to the App Registration on the target resource group
 
 name: Deploy Static Web App Infrastructure
