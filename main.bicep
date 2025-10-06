@@ -17,5 +17,6 @@ module staticWebApp 'br/public:avm/res/web/static-site:0.9.3' = {
 }
 
 // Outputs (if available from the module)
+output staticWebAppName string = staticWebApp.outputs.name
 output staticWebAppResourceId string = staticWebApp.outputs.resourceId
 output staticWebAppDefaultHostname string = staticWebApp.outputs.defaultHostname
