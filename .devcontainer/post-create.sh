@@ -3,21 +3,15 @@ set -e
 
 echo "🚀 Setting up Awesome Copilot MCP Server environment..."
 
-# Update package manager
-apt-get update
-
-# Install required dependencies
-echo "📦 Installing dependencies..."
-apt-get install -y \
-    git \
-    curl \
-    wget \
-    apt-transport-https \
-    ca-certificates
-
-# Install Azure CLI
-echo "🔧 Installing Azure CLI..."
-apt-get install -y azure-cli
+# Detect package manager and update
+if command -v apt-get &> /dev/null; then
+    echo "📦 Using apt-get package manager..."
+    apt-get update
+    apt-get install -y curl wget
+elif command -v apk &> /dev/null; then
+    echo "� Using apk package manager (Alpine)..."
+    apk add --no-cache curl wget
+fi
 
 # Install Azure Developer CLI
 echo "🔧 Installing Azure Developer CLI..."

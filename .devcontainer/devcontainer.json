@@ -1,7 +1,10 @@
 {
   "name": "Awesome Copilot MCP Dev Environment",
-  "image": "mcr.microsoft.com/devcontainers/dotnet:9-jammy",
+  "image": "mcr.microsoft.com/devcontainers/universal:latest",
   "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "9.0"
+    },
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
