@@ -1,0 +1,36 @@
+{
+  "name": "Awesome Copilot MCP Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:9-jammy",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csdevkit",
+        "ms-vscode.csharp",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        "dotnet.defaultSolutionOrFolder": "${workspaceFolder}",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "forwardPorts": [5250, 8080],
+  "portsAttributes": {
+    "5250": {
+      "label": "MCP Server (Local)",
+      "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "MCP Server (Container)",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "vscode"
+}
