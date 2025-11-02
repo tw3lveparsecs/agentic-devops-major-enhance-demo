@@ -3,6 +3,10 @@ set -e
 
 echo "Setting up Awesome Copilot MCP Server environment..."
 
+echo "Installing Azure CLI..."
+curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+echo "Verifying .NET installation..."
 dotnet --version
 
 WORKSPACE_ROOT="/workspaces/agentic-devops-major-enhance-demo"
