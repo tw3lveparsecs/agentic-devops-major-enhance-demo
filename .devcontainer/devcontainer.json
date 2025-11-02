@@ -34,6 +34,5 @@
       "label": "MCP Server (Container)",
       "onAutoForward": "notify"
     }
-  },
-  "remoteUser": "vscode"
+  }
 }
