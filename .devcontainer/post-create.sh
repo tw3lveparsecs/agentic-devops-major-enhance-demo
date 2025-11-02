@@ -4,7 +4,7 @@ set -e
 echo "Setting up Awesome Copilot MCP Server environment..."
 
 echo "Installing Azure CLI..."
-curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash || echo "Warning: Azure CLI installation failed or already installed"
 
 echo "Verifying .NET installation..."
 dotnet --version
@@ -30,7 +30,7 @@ fi
 if [ -d "${WORKSPACE_ROOT}/awesome-copilot" ]; then
     echo "Restoring .NET dependencies..."
     cd "${WORKSPACE_ROOT}/awesome-copilot"
-    dotnet restore
+    dotnet restore || echo "Warning: Some dependencies could not be restored (expected if shared project is not available)"
     cd "${WORKSPACE_ROOT}"
 fi
 
