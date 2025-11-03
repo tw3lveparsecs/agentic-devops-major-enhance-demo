@@ -28,9 +28,11 @@ if [ -d "${WORKSPACE_ROOT}/awesome-copilot/.vscode" ]; then
 fi
 
 if [ -d "${WORKSPACE_ROOT}/awesome-copilot" ]; then
-    echo "Restoring .NET dependencies..."
+    # echo "Restoring .NET dependencies..."
+    echo "Running .NET application..."
     cd "${WORKSPACE_ROOT}/awesome-copilot"
-    dotnet restore || echo "Warning: Some dependencies could not be restored (expected if shared project is not available)"
+    dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp -- --http
+    # dotnet restore || echo "Warning: Some dependencies could not be restored (expected if shared project is not available)"
     cd "${WORKSPACE_ROOT}"
 fi
 
