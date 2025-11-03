@@ -32,7 +32,7 @@ fi
 #     # echo "Restoring .NET dependencies..."
 #     echo "Running awesome-copilot .NET application..."
 #     cd "${WORKSPACE_ROOT}/awesome-copilot"
-#     dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp
+#     dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp -- --http
 #     # cd "${WORKSPACE_ROOT}"
 # fi
 
