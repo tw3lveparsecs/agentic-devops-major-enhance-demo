@@ -19,7 +19,23 @@
       ],
       "settings": {
         "dotnet.defaultSolutionOrFolder": "${workspaceFolder}",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "[github.copilot.chat]": {
+          "mcp": {
+            "servers": {
+              "awesome-copilot": {
+                "type": "stdio",
+                "command": "docker",
+                "args": [
+                  "run",
+                  "-i",
+                  "--rm",
+                  "ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:latest"
+                ]
+              }
+            }
+          }
+        }
       }
     }
   } //,
