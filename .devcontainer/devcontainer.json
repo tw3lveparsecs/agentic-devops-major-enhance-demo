@@ -19,36 +19,20 @@
       ],
       "settings": {
         "dotnet.defaultSolutionOrFolder": "${workspaceFolder}",
-        "editor.formatOnSave": true,
-        "[github.copilot.chat]": {
-          "mcp": {
-            "servers": {
-              "awesome-copilot": {
-                "type": "stdio",
-                "command": "docker",
-                "args": [
-                  "run",
-                  "-i",
-                  "--rm",
-                  "ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:latest"
-                ]
-              }
-            }
-          }
-        }
+        "editor.formatOnSave": true
       }
     }
-  } //,
-  // "postCreateCommand": "bash .devcontainer/post-create.sh",
-  // "forwardPorts": [5250, 8080],
-  // "portsAttributes": {
-  //   "5250": {
-  //     "label": "MCP Server (Local)",
-  //     "onAutoForward": "notify"
-  //   },
-  //   "8080": {
-  //     "label": "MCP Server (Container)",
-  //     "onAutoForward": "notify"
-  //   }
-  // }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "forwardPorts": [5250, 8080],
+  "portsAttributes": {
+    "5250": {
+      "label": "MCP Server (Local)",
+      "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "MCP Server (Container)",
+      "onAutoForward": "notify"
+    }
+  }
 }
