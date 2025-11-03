@@ -30,11 +30,10 @@ fi
 
 if [ -d "${WORKSPACE_ROOT}/awesome-copilot" ]; then
     # echo "Restoring .NET dependencies..."
-    echo "Running .NET application..."
+    echo "Running awesome-copilot .NET application..."
     cd "${WORKSPACE_ROOT}/awesome-copilot"
-    dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp -- --http
-    # dotnet restore || echo "Warning: Some dependencies could not be restored (expected if shared project is not available)"
-    cd "${WORKSPACE_ROOT}"
+    dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp
+    # cd "${WORKSPACE_ROOT}"
 fi
 
 echo "Setup complete! MCP environment ready."
