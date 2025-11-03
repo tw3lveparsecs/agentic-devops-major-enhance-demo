@@ -15,6 +15,7 @@ if [ ! -d "${WORKSPACE_ROOT}/awesome-copilot" ]; then
     echo "Cloning awesome-copilot MCP samples..."
     git clone https://github.com/microsoft/mcp-dotnet-samples.git /tmp/mcp-dotnet-samples
     cp -r /tmp/mcp-dotnet-samples/awesome-copilot "${WORKSPACE_ROOT}/"
+    cp -r /tmp/mcp-dotnet-samples/shared "${WORKSPACE_ROOT}/"
     rm -rf /tmp/mcp-dotnet-samples
 fi
 
