@@ -22,17 +22,17 @@
         "editor.formatOnSave": true
       }
     }
-  },
-  "postCreateCommand": "bash .devcontainer/post-create.sh",
-  "forwardPorts": [5250, 8080],
-  "portsAttributes": {
-    "5250": {
-      "label": "MCP Server (Local)",
-      "onAutoForward": "notify"
-    },
-    "8080": {
-      "label": "MCP Server (Container)",
-      "onAutoForward": "notify"
-    }
-  }
+  } //,
+  // "postCreateCommand": "bash .devcontainer/post-create.sh",
+  // "forwardPorts": [5250, 8080],
+  // "portsAttributes": {
+  //   "5250": {
+  //     "label": "MCP Server (Local)",
+  //     "onAutoForward": "notify"
+  //   },
+  //   "8080": {
+  //     "label": "MCP Server (Container)",
+  //     "onAutoForward": "notify"
+  //   }
+  // }
 }
