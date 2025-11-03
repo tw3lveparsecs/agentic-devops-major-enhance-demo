@@ -28,12 +28,12 @@ if [ -d "${WORKSPACE_ROOT}/awesome-copilot/.vscode" ]; then
     fi
 fi
 
-if [ -d "${WORKSPACE_ROOT}/awesome-copilot" ]; then
-    # echo "Restoring .NET dependencies..."
-    echo "Running awesome-copilot .NET application..."
-    cd "${WORKSPACE_ROOT}/awesome-copilot"
-    dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp
-    # cd "${WORKSPACE_ROOT}"
-fi
+# if [ -d "${WORKSPACE_ROOT}/awesome-copilot" ]; then
+#     # echo "Restoring .NET dependencies..."
+#     echo "Running awesome-copilot .NET application..."
+#     cd "${WORKSPACE_ROOT}/awesome-copilot"
+#     dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp
+#     # cd "${WORKSPACE_ROOT}"
+# fi
 
 echo "Setup complete! MCP environment ready."
