@@ -28,12 +28,9 @@ if [ -d "${WORKSPACE_ROOT}/awesome-copilot/.vscode" ]; then
     fi
 fi
 
-# if [ -d "${WORKSPACE_ROOT}/awesome-copilot" ]; then
-#     # echo "Restoring .NET dependencies..."
-#     echo "Running awesome-copilot .NET application..."
-#     cd "${WORKSPACE_ROOT}/awesome-copilot"
-#     dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp -- --http
-#     # cd "${WORKSPACE_ROOT}"
-# fi
-
 echo "Setup complete! MCP environment ready."
+echo "Running the following command to start the awesome-copilot .NET application:"
+echo "dotnet run --project ./awesome-copilot/src/McpSamples.AwesomeCopilot.HybridApp -- --http"
+echo "Open the Command Palette (Ctrl+Shift+P / Cmd+Shift+P) and:"
+echo "MCP: List Servers → awesome-copilot → Start Server"
+echo "NOTE: If the server fails to start, open the command palette and select 'Developer: Reload Window' and try again."
