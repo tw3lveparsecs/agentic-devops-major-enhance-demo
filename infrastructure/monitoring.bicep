@@ -32,7 +32,7 @@ param appInsightsSamplingPercentage int = 100
 param tags object = {}
 
 // Log Analytics Workspace using AVM module
-module logAnalyticsWorkspace 'br/public:avm/res/operational-insights/workspace:0.9.1' = {
+module logAnalyticsWorkspace 'br/public:avm/res/operational-insights/workspace:0.12.0' = {
   name: 'logAnalyticsWorkspace-${environmentName}'
   params: {
     name: 'law-imperial-supply-${environmentName}'
@@ -48,7 +48,7 @@ module logAnalyticsWorkspace 'br/public:avm/res/operational-insights/workspace:0
 }
 
 // Application Insights using AVM module
-module applicationInsights 'br/public:avm/res/insights/component:0.4.2' = {
+module applicationInsights 'br/public:avm/res/insights/component:0.7.0' = {
   name: 'applicationInsights-${environmentName}'
   params: {
     name: 'appi-imperial-supply-${environmentName}'

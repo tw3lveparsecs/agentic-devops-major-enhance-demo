@@ -41,7 +41,7 @@ var webhookReceivers = [for (webhook, i) in alertWebhookUrls: {
 }]
 
 // Action Group for monitoring alerts using AVM module
-module actionGroup 'br/public:avm/res/insights/action-group:0.2.0' = {
+module actionGroup 'br/public:avm/res/insights/action-group:0.8.0' = {
   name: 'actionGroup-${environmentName}'
   params: {
     name: 'ag-imperial-supply-${environmentName}'

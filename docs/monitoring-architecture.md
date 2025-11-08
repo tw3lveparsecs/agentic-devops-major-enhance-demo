@@ -16,7 +16,7 @@ This document describes the monitoring and observability infrastructure for the 
 - **Retention Period**: 30 days (configurable 30-730 days)
 - **Pricing Tier**: PerGB2018 (pay-as-you-go based on data ingestion)
 - **Location**: Same as resource group
-- **AVM Module**: `br/public:avm/res/operational-insights/workspace:0.9.1`
+- **AVM Module**: `br/public:avm/res/operational-insights/workspace:0.12.0`
 
 **Capabilities**:
 - Stores all application logs, performance metrics, and telemetry data
@@ -35,7 +35,7 @@ This document describes the monitoring and observability infrastructure for the 
 - **Workspace Integration**: Linked to Log Analytics workspace
 - **Sampling Rate**: 100% (all telemetry captured initially)
 - **Location**: Same as resource group
-- **AVM Module**: `br/public:avm/res/insights/component:0.4.2`
+- **AVM Module**: `br/public:avm/res/insights/component:0.7.0`
 
 **Capabilities**:
 - Real-time application performance monitoring
@@ -57,7 +57,7 @@ This document describes the monitoring and observability infrastructure for the 
 **Configuration**:
 - **Location**: Global (action groups are global resources)
 - **Group Short Name**: `Imperial{env}` (max 12 characters)
-- **AVM Module**: `br/public:avm/res/insights/action-group:0.2.0`
+- **AVM Module**: `br/public:avm/res/insights/action-group:0.8.0`
 
 **Notification Channels**:
 - **Email**: Configurable email addresses for alert notifications
