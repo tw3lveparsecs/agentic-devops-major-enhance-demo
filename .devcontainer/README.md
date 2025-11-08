@@ -9,60 +9,29 @@ This Codespace is configured to run the **Awesome Copilot MCP Server** along wit
 - **GitHub Copilot** - AI-powered coding assistance
 - **Awesome Copilot MCP Server** - Custom Copilot instructions and prompts support
 - **Azure CLI & Azure Developer CLI** - Cloud deployment tools
-- **Docker** - Container support for local MCP server testing
 
 ## 🚀 Quick Start
 
 ### 1. Start the MCP Server
 
-Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and:
+Run the following command to start the .NET application:
+
+```bash
+dotnet run --project ./awesome-copilot/src/McpSamples.AwesomeCopilot.HybridApp -- --http
+```
+
+Then open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and:
 
 ```
 MCP: List Servers → awesome-copilot → Start Server
 ```
 
-**For HTTP mode (Recommended):**
-
-```bash
-cd awesome-copilot
-dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp -- --http
-```
-
-**For STDIO mode:**
-
-```bash
-cd awesome-copilot
-dotnet run --project ./src/McpSamples.AwesomeCopilot.HybridApp
-```
+> [!NOTE]
+> If the server fails to start, open the command palette and select **Developer: Reload Window**, then try again.
 
 ### 2. Configure MCP Connection
 
-The post-create script automatically sets up the MCP configuration. If needed, you can manually copy the configuration:
-
-**For HTTP local:**
-
-```bash
-cp awesome-copilot/.vscode/mcp.http.local.json .vscode/mcp.json
-```
-
-**For STDIO local:**
-
-```bash
-cp awesome-copilot/.vscode/mcp.stdio.local.json .vscode/mcp.json
-```
-
-**For container (Docker):**
-
-```bash
-docker build -f Dockerfile.awesome-copilot -t awesome-copilot:latest .
-docker run -i --rm -p 8080:8080 awesome-copilot:latest --http
-```
-
-Then use the container configuration:
-
-```bash
-cp awesome-copilot/.vscode/mcp.http.container.json .vscode/mcp.json
-```
+The post-create script automatically sets up the MCP configuration for HTTP mode. The configuration file is copied to `.vscode/mcp.json` automatically.
 
 ### 3. Use MCP Features
 
@@ -85,7 +54,6 @@ The awesome-copilot MCP server provides:
 ## 🔗 Port Mappings
 
 - **5250** - MCP Server (Local HTTP)
-- **8080** - MCP Server (Docker Container)
 
 ## 📖 Documentation
 
@@ -100,7 +68,6 @@ All necessary dependencies are installed during Codespace creation via the post-
 - GitHub CLI
 - Azure CLI
 - Azure Developer CLI
-- Docker
 
 ## 🐛 Troubleshooting
 
@@ -112,7 +79,7 @@ All necessary dependencies are installed during Codespace creation via the post-
 
 ### Connection Issues
 
-1. Ensure ports 5250 (or 8080 for Docker) are available
+1. Ensure port 5250 is available
 2. Check the MCP configuration in `.vscode/mcp.json`
 3. Restart the MCP server from the Command Palette
 
