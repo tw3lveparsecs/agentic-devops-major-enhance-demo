@@ -73,7 +73,7 @@ module alerts './infrastructure/alerts.bicep' = {
 module staticWebApp 'br/public:avm/res/web/static-site:0.9.3' = {
   name: 'staticWebApp'
   params: {
-    name: staticWebAppName
+    name: '${staticWebAppName}-${environmentName}'
     location: location
     sku: sku
     linkedApplicationInsightsResourceId: monitoring.outputs.applicationInsightsId
