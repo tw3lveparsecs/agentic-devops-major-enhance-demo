@@ -76,19 +76,10 @@ module staticWebApp 'br/public:avm/res/web/static-site:0.9.3' = {
     name: '${staticWebAppName}-${environmentName}'
     location: location
     sku: sku
-    linkedApplicationInsightsResourceId: monitoring.outputs.applicationInsightsId
     tags: tags
-    diagnosticSettings: [
-      {
-        name: 'staticwebapp-diagnostics'
-        workspaceResourceId: monitoring.outputs.logAnalyticsWorkspaceId
-        logCategoriesAndGroups: [
-          {
-            categoryGroup: 'allLogs'
-          }
-        ]
-      }
-    ]
+    appSettings: {
+      APPLICATIONINSIGHTS_CONNECTION_STRING: monitoring.outputs.applicationInsightsConnectionString
+    }
   }
 }
 
