@@ -45,7 +45,7 @@ param tags object = {
 }
 
 // Deploy monitoring infrastructure (Log Analytics and Application Insights)
-module monitoring './infrastructure/monitoring.bicep' = {
+module monitoring './monitoring.bicep' = {
   name: 'monitoring-deployment'
   params: {
     location: location
@@ -58,7 +58,7 @@ module monitoring './infrastructure/monitoring.bicep' = {
 }
 
 // Deploy alert infrastructure (Action Groups)
-module alerts './infrastructure/alerts.bicep' = {
+module alerts './alerts.bicep' = {
   name: 'alerts-deployment'
   params: {
     environmentName: environmentName
