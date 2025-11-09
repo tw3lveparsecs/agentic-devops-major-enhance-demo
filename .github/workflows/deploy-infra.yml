@@ -50,8 +50,8 @@ jobs:
           scope: resourceGroup
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resource-group-name: ${{ inputs.resource-group }}
-          template-file: ./main.bicep
-          parameters-file: ./main.bicepparam
+          template-file: ./infrastructure/main.bicep
+          parameters-file: ./infrastructure/main.bicepparam
 
       - name: Authenticate GitHub CLI
         run: gh auth login --with-token <<< ${{ secrets.REPO_GITHUB_PAT }}
