@@ -1,0 +1,11 @@
+{
+  "name": "imperial-supply-api",
+  "version": "1.0.0",
+  "description": "Minimal Azure Functions API to enable Application Insights for Static Web App",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests configured\""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -70,6 +70,7 @@ module alerts './alerts.bicep' = {
 }
 
 // Use AVM Static Web App module version 0.9.3 with Application Insights integration
+// The minimal health check function in /api enables App Insights telemetry collection
 module staticWebApp 'br/public:avm/res/web/static-site:0.9.3' = {
   name: 'staticWebApp'
   params: {
