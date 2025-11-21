@@ -1,6 +1,7 @@
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
 import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+import { ITelemetryItem } from '@microsoft/applicationinsights-core-js';
 
 let appInsights: ApplicationInsights | null = null;
 let reactPlugin: ReactPlugin | null = null;
@@ -25,7 +26,7 @@ export function getReactPlugin(): ReactPlugin | null {
  * PII scrubbing telemetry processor
  * Filters sensitive data from telemetry before sending to Azure
  */
-function piiScrubbingProcessor(envelope: any): boolean {
+function piiScrubbingProcessor(envelope: ITelemetryItem): boolean {
   if (!envelope) {
     return true;
   }
@@ -42,25 +43,36 @@ function piiScrubbingProcessor(envelope: any): boolean {
     /credit[_-]?card/i,
     /ssn/i,
     /social[_-]?security/i,
-    /email/i,
     /phone/i,
   ];
+
+  // Email regex pattern (more precise than simple string containment)
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   // Scrub custom properties
   if (envelope.data && envelope.data.baseData && envelope.data.baseData.properties) {
     const properties = envelope.data.baseData.properties;
     for (const key in properties) {
+      // Scrub fields matching sensitive patterns
       if (sensitivePatterns.some(pattern => pattern.test(key))) {
         properties[key] = '[REDACTED]';
       }
       // Scrub values that look like emails or tokens
       if (typeof properties[key] === 'string') {
-        // Redact email patterns
-        if (properties[key].includes('@') && properties[key].includes('.')) {
+        const value = properties[key];
+        
+        // Redact email patterns with proper regex
+        if (emailPattern.test(value)) {
           properties[key] = '[REDACTED_EMAIL]';
         }
-        // Redact long alphanumeric strings that might be tokens
-        if (/^[a-zA-Z0-9_-]{32,}$/.test(properties[key])) {
+        
+        // Redact long alphanumeric strings that might be tokens (64+ chars for better precision)
+        // Skip if it looks like a UUID format or contains common safe patterns
+        if (
+          value.length >= 64 &&
+          /^[a-zA-Z0-9_-]+$/.test(value) &&
+          !(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value)) // Not UUID
+        ) {
           properties[key] = '[REDACTED_TOKEN]';
         }
       }
